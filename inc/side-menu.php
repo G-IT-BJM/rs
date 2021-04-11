@@ -31,7 +31,7 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         SIP
       </a>
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="tunjangan-list.php">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         Tunjangan
       </a>
