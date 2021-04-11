@@ -44,7 +44,7 @@ include 'function.php';
                 echo "<td>{$key['nik']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
                 echo "<td class='text-center'>
-                        <a href='pengalaman-print.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-print'></li></a>
+                        <a target='_blank' href='pengalaman-print.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-print'></li></a>
                         <a href='pengalaman-ubah.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-edit'></li></a>
                         <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='pengalaman-action.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-trash-alt'></li></a>
                       </td>";

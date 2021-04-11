@@ -154,9 +154,10 @@ function fail($message)
   $_SESSION['notif'] = "<div class=\"alert alert-danger\" role=\"alert\">Gagal!, {$message}</div>";
 }
 
-function back()
+function back($url=null)
 {
-  header("Location: {$_SERVER['HTTP_REFERER']}");
+  $redirect = $url ? $url : $_SERVER['HTTP_REFERER'];
+  header("Location: {$redirect}");
 }
 
 function show_notif()
@@ -216,6 +217,55 @@ function convertToRomawi($str)
   return $rmw;
 }
 
+function tanggalIndo($tgl)
+{
+  $exp = explode('-',$tgl);  
+  $str = (int) $exp['1'];  
+
+  switch ($str) {
+    case 1:
+      $bln = 'Januari';
+      break;
+    case 2:
+      $bln = 'Februari';
+      break;
+    case 3:
+      $bln = 'Maret';
+      break;
+    case 4:
+      $bln = 'April';
+      break;
+    case 5:
+      $bln = 'Mei';
+      break;
+    case 6:
+      $bln = 'Juni';
+      break;
+    case 7:
+      $bln = 'Juli';
+      break;
+    case 8:
+      $bln = 'Agustus';
+      break;
+    case 9:
+      $bln = 'Setepmber';
+      break;
+    case 10:
+      $bln = 'Oktober';
+      break;
+    case 11:
+      $bln = 'November';
+      break;
+    case 12:
+      $bln = 'Desember';
+      break;
+    default:
+      $bln = '';
+      break;
+  }
+  return $exp[2] . ' ' . $bln . ' ' .$exp[0];
+}
+
 function checkLogin($user,$pass)
 {
   $query = "SELECT * FROM tb_user WHERE user = '{$user}' && pass = '{$pass}'";
@@ -236,6 +286,30 @@ function checkLogin($user,$pass)
     }
   }
   
+}
+
+function generateNoSurat()
+{
+  $query = "
+    select MAX(no_surat) no_surat from (SELECT MAX(no_surat_resign) no_surat FROM tb_resign
+    UNION ALL
+    SELECT MAX(no_surat_pengalaman) FROM tb_pengalaman_kerja
+    UNION ALL
+    SELECT MAX(no_surat_tunjangan) FROM tb_tunjangan
+    UNION ALL
+    SELECT MAX(no_surat_str) FROM tb_str
+    UNION ALL
+    SELECT MAX(no_surat_sip) FROM tb_sip) as X
+  ";
+
+  $sql = mysqli_fetch_assoc(mysqli_query(connect(), $query));
+
+  if (!$sql) {
+    return fail(mysqli_error(connect()));
+    die();
+  }
+
+  return @$sql['no_surat'];
 }
 
 ?>

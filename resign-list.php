@@ -50,7 +50,7 @@ include 'function.php';
                 echo "<td>{$key['tanggal_buat']}</td>";
                 echo "<td>{$key['alasan']}</td>";
                 echo "<td class='text-center'>
-                        <a href='resign-print.php?id={$key['no_surat_resign']}'><li class='fa fa-print'></li></a>
+                        <a target='_blank' href='resign-print.php?id={$key['no_surat_resign']}'><li class='fa fa-print'></li></a>
                         <a href='resign-ubah.php?id={$key['no_surat_resign']}'><li class='fa fa-edit'></li></a>
                         <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='resign-action.php?id={$key['no_surat_resign']}'><li class='fa fa-trash-alt'></li></a>
                       </td>";

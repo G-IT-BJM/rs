@@ -20,7 +20,7 @@ foreach ($row as $key) {
   $tanggal_buat    = $key['tanggal_buat'];
 }
 
-$karyawan     = select("SELECT * FROM tb_karyawan");
+$karyawan = select("SELECT * FROM tb_karyawan");
 
 ?>
 
@@ -76,10 +76,10 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
               Karyawan
             </div>
             <select class="form-control" name="nik" required>
-              <option value="123">test</option>
+              <option value="">Pilih Karyawan</option>
               <?php 
                 foreach ($karyawan as $key) {
-                  echo "<option value='{$key['nik']}'>{$key['nik']} - {$key['nama']}</option>";
+                  echo "<option value='{$key['nik']}'".($nik == $key['nik'] ? ' selected' : '').">{$key['nik']} - {$key['nama']}</option>";
                 }
               ?>
             </select>

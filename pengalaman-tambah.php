@@ -4,6 +4,9 @@ include 'config.php';
 include 'inc/head.php';
 include 'function.php';
 
+$no_surat = generateNoSurat();
+$no_surat = (int) explode('/',@$no_surat[0]['no_surat'])[0] + 1;
+
 $tgl_no_surat = date('d') . '-' . convertToRomawi(date('m')) . '-' . date('Y');
 $tgl_buat     = date('Y-m-d');
 $karyawan     = select("SELECT * FROM tb_karyawan");
@@ -31,7 +34,7 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
                 <div class="control-label">
                   No. Surat
                 </div>
-                <input type="text" name="no_surat[]" class="form-control" required>
+                <input type="number" name="no_surat[]" class="form-control" value="<?=$no_surat?>" readonly required>
               </div>
             </div>
 
@@ -62,7 +65,7 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
               Karyawan
             </div>
             <select class="form-control" name="nik" required>
-              <option value="123">test</option>
+              <option value="">Pilih Karyawan</option>
               <?php 
                 foreach ($karyawan as $key) {
                   echo "<option value='{$key['nik']}'>{$key['nik']} - {$key['nama']}</option>";
