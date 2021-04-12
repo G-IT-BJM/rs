@@ -14,10 +14,10 @@ include 'function.php';
       <div class="card-header">
         <div class="float-left">
           <i class="fas fa-table mr-1"></i>
-          Data Pengantar STR
+          Data Pengantar SIP
         </div>
         <div class="float-right">
-          <a class="btn btn-primary btn-sm" href="surat-pengantar-str-tambah.php"><li class="fa fa-plus"></li> Tambah</a>
+          <a class="btn btn-primary btn-sm" href="surat-pengantar-sip-tambah.php"><li class="fa fa-plus"></li> Tambah</a>
         </div>
       </div>
       <div class="card-body">
@@ -37,7 +37,7 @@ include 'function.php';
             </thead>
             <tbody>
               <?php 
-              $data = select('select a.*, b.nama from tb_pengantar as a INNER JOIN tb_karyawan as b ON a.nip=b.nip WHERE a.jenis_surat = "STR" ORDER BY a.no_surat DESC');
+              $data = select('select a.*, b.nama from tb_pengantar as a INNER JOIN tb_karyawan as b ON a.nip=b.nip WHERE a.jenis_surat = "SIP" ORDER BY a.no_surat DESC');
               $no = 1;
               foreach ($data as $key) {
                 echo "<tr>";
@@ -46,9 +46,9 @@ include 'function.php';
                 echo "<td>{$key['jenis']}</td>";
                 echo "<td>{$key['tgl_dibuat']}</td>";
                 echo "<td class='text-center'>
-                        <a target='_blank' href='surat-pengantar-str-print.php?id={$key['no_surat']}'><li class='fa fa-print'></li></a>
-                        <a href='surat-pengantar-str-ubah.php?id={$key['no_surat']}'><li class='fa fa-edit'></li></a>
-                        <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='surat-pengantar-str-action.php?id={$key['no_surat']}'><li class='fa fa-trash-alt'></li></a>
+                        <a target='_blank' href='surat-pengantar-sip-print.php?id={$key['no_surat']}'><li class='fa fa-print'></li></a>
+                        <a href='surat-pengantar-sip-ubah.php?id={$key['no_surat']}'><li class='fa fa-edit'></li></a>
+                        <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='surat-pengantar-sip-action.php?id={$key['no_surat']}'><li class='fa fa-trash-alt'></li></a>
                       </td>";
                 echo "</tr>";
                 $no++;

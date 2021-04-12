@@ -34,14 +34,14 @@ $karyawan = select("SELECT * FROM tb_karyawan");
       <div class="card-header">
         <div class="float-left">
           <i class="fas fa-table mr-1"></i>
-          Form Ubah Pengantar STR
+          Form Ubah Pengantar SIP
         </div>
       </div>
       <div class="card-body">
 
         <?php show_notif() ?>
 
-        <form action="surat-pengantar-str-action.php" method="post" enctype="multipart/form-data">
+        <form action="surat-pengantar-sip-action.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="__method" value="put">
           <div class="row">
             <div class="col-lg-4 col-md-4">
@@ -96,7 +96,7 @@ $karyawan = select("SELECT * FROM tb_karyawan");
           
           <div class="form-group">
             <input type="submit" name="save" id="save" class="btn btn-primary btn-small" value="Simpan">
-            <a href="surat-pengantar-str-list.php" class="btn btn-dark btn-small">Kembali</a>
+            <a href="surat-pengantar-sip-list.php" class="btn btn-dark btn-small">Kembali</a>
           </div>
         </form>
       </div>

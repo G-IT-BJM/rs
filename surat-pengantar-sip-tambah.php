@@ -4,29 +4,14 @@ include 'config.php';
 include 'inc/head.php';
 include 'function.php';
 
-$table   = 'tb_pengantar';
-$primary = 'no_surat';
-$row     = select("select * from {$table} where {$primary} = '{$_GET['id']}'");
+$no_surat     = generateNoSurat();
+$no_surat = (int) explode('/',@$no_surat[0]['no_surat'])[0] + 1;
 
-// $no_surat     = ['','',''];
-$no_surat     = '';
-$nip          = '';
-$tgl_dibuat   = '';
-$jenis        = '';
-
-foreach ($row as $key) {
-  // $no_surat   = explode('/',$key['no_surat']);
-  $no_surat   = $key['no_surat'];
-  $nip        = $key['nip'];
-  $jenis      = $key['jenis'];
-  $tgl_dibuat = $key['tgl_dibuat'];
-}
-
-$karyawan = select("SELECT * FROM tb_karyawan");
-
+$tgl_no_surat = date('d') . '-' . convertToRomawi(date('m')) . '-' . date('Y');
+$tgl_buat     = date('Y-m-d');
+$karyawan     = select("SELECT * FROM tb_karyawan");
 
 ?>
-
 
 <main>
   <div class="container-fluid">    
@@ -34,35 +19,52 @@ $karyawan = select("SELECT * FROM tb_karyawan");
       <div class="card-header">
         <div class="float-left">
           <i class="fas fa-table mr-1"></i>
-          Form Ubah Pengantar STR
+          Form Tambah Pengantar SIP
         </div>
       </div>
       <div class="card-body">
 
         <?php show_notif() ?>
 
-        <form action="surat-pengantar-str-action.php" method="post" enctype="multipart/form-data">
-          <input type="hidden" name="__method" value="put">
+        <form action="surat-pengantar-sip-action.php" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="__method" value="post">
           <div class="row">
             <div class="col-lg-4 col-md-4">
               <div class="form-group">
                 <div class="control-label">
                   No. Surat
                 </div>
-                <input type="text" name="no_surat" class="form-control" value="<?=$no_surat?>" required readonly>
+                <input type="number" name="no_surat[]" class="form-control" value="<?=$no_surat?>" required readonly>
               </div>
             </div>
 
-            <div class="col-lg-2 col-md-2"></div>
+            <div class="col-lg-2 col-md-2">
+              <div class="form-group">
+                <div class="control-label">
+                  &nbsp;
+                </div>
+                <select class="form-control" name="no_surat[]" required>
+                  <option value="SDM">SDM</option>
+                  <option value="ADM">ADM</option>
+                </select>
+              </div>
+            </div>
 
-            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-2 col-md-2">
+              <div class="form-group">
+                <div class="control-label">
+                  &nbsp;
+                </div>
+                <input readonly type="text" name="no_surat[]" class="form-control" required" value="<?=$tgl_no_surat?>">
+              </div>
+            </div>
 
             <div class="col-lg-3 col-md-3">
               <div class=" form-group">
                 <div class="control-label">
                   Tanggal Dibuat
                 </div>
-                <input type="date" name="tgl_dibuat" class="form-control" value="<?=$tgl_dibuat?>" required readonly>
+                <input type="date" name="tgl_dibuat" class="form-control" value="<?=$tgl_buat?>" required readonly>
               </div>
             </div>
 
@@ -76,7 +78,7 @@ $karyawan = select("SELECT * FROM tb_karyawan");
                 <option value="">Pilih Karyawan</option>
                 <?php 
                   foreach ($karyawan as $key) {
-                    echo "<option value='{$key['nip']}'".($nip == $key['nip'] ? ' selected' : '').">{$key['nip']} - {$key['nama']}</option>";
+                    echo "<option value='{$key['nip']}'>{$key['nip']} - {$key['nama']}</option>";
                   }
                 ?>
               </select>
@@ -87,8 +89,8 @@ $karyawan = select("SELECT * FROM tb_karyawan");
                 Jenis
               </div>
               <select class="form-control" name="jenis" required>
-                <option value="pembuatan" <?=$jenis == 'pembuatan' ? 'selected' : ''?>>Pembuatan</option>
-                <option value="perpanjang" <?=$jenis == 'perpanjang' ? 'selected' : ''?>>Perpanjang</option>
+                <option value="pembuatan" selected>Pembuatan</option>
+                <option value="perpanjang">Perpanjang</option>
               </select>
             </div>
 
@@ -96,7 +98,7 @@ $karyawan = select("SELECT * FROM tb_karyawan");
           
           <div class="form-group">
             <input type="submit" name="save" id="save" class="btn btn-primary btn-small" value="Simpan">
-            <a href="surat-pengantar-str-list.php" class="btn btn-dark btn-small">Kembali</a>
+            <a href="surat-pengantar-sip-list.php" class="btn btn-dark btn-small">Kembali</a>
           </div>
         </form>
       </div>
