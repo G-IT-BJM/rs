@@ -297,9 +297,8 @@ function generateNoSurat()
     UNION ALL
     SELECT MAX(no_surat_tunjangan) FROM tb_tunjangan
     UNION ALL
-    SELECT MAX(no_surat_str) FROM tb_str
-    UNION ALL
-    SELECT MAX(no_surat_sip) FROM tb_sip) as X
+    SELECT MAX(no_surat) FROM tb_pengantar
+    ) as X
   ";
 
   $sql = mysqli_fetch_assoc(mysqli_query(connect(), $query));

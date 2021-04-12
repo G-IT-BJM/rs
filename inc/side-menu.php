@@ -22,6 +22,15 @@
         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
         Karyawan
       </a>
+      <div class="sb-sidenav-menu-heading">Pengantar</div>
+      <a class="nav-link" href="surat-pengantar-str-list.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+        Pengantar STR
+      </a>
+      <a class="nav-link" href="surat-pengantar-sip-list.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+        Pengantar SIP
+      </a>
       <div class="sb-sidenav-menu-heading">Surat</div>
       <a class="nav-link" href="index.html">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
