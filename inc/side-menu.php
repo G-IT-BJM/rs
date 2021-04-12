@@ -31,7 +31,7 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         Pengantar SIP
       </a>
-      <div class="sb-sidenav-menu-heading">Surat</div>
+      <div class="sb-sidenav-menu-heading">Penerimaan</div>
       <a class="nav-link" href="index.html">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         STR
@@ -40,6 +40,7 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         SIP
       </a>
+      <div class="sb-sidenav-menu-heading">Surat</div>
       <a class="nav-link" href="tunjangan-list.php">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         Tunjangan
