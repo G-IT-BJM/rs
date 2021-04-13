@@ -32,11 +32,11 @@
         Pengantar SIP
       </a>
       <div class="sb-sidenav-menu-heading">Penerimaan</div>
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="penerimaan-str-list.php">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         STR
       </a>
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="penerimaan-sip-list.php">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         SIP
       </a>
