@@ -311,4 +311,9 @@ function generateNoSurat()
   return @$sql['no_surat'];
 }
 
+function capitalWords($str)
+{
+  return ucwords(strtolower($str));
+}
+
 ?>

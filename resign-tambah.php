@@ -64,11 +64,11 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
             <div class="control-label">
               Karyawan
             </div>
-            <select class="form-control" name="nik" required>
+            <select class="form-control" name="nip" required>
               <option value="">Pilih Karyawan</option>
               <?php 
                 foreach ($karyawan as $key) {
-                  echo "<option value='{$key['nik']}'>{$key['nik']} - {$key['nama']}</option>";
+                  echo "<option value='{$key['nip']}'>{$key['nip']} - {$key['nama']}</option>";
                 }
               ?>
             </select>

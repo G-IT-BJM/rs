@@ -9,13 +9,13 @@ $primary = 'no_surat_tunjangan';
 $row     = select("select * from {$table} where {$primary} = '{$_GET['id']}'");
 
 $no_surat_tunjangan = ['','',''];
-$nik                = '';
+$nip                = '';
 $tanggal_buat       = '';
 $jenis_tunjangan    = '';
 
 foreach ($row as $key) {
   $no_surat_tunjangan = explode('/',$key['no_surat_tunjangan']);
-  $nik                = $key['nik'];
+  $nip                = $key['nip'];
   $tanggal_buat       = $key['tanggal_buat'];
   $jenis_tunjangan    = $key['jenis_tunjangan'];
 }
@@ -76,11 +76,11 @@ $karyawan = select("SELECT * FROM tb_karyawan");
             <div class="control-label">
               Karyawan
             </div>
-            <select class="form-control" name="nik" required>
+            <select class="form-control" name="nip" required>
               <option value="">Pilih Karyawan</option>
               <?php 
                 foreach ($karyawan as $key) {
-                  echo "<option value='{$key['nik']}'".($nik == $key['nik'] ? ' selected' : '').">{$key['nik']} - {$key['nama']}</option>";
+                  echo "<option value='{$key['nip']}'".($nip == $key['nip'] ? ' selected' : '').">{$key['nip']} - {$key['nama']}</option>";
                 }
               ?>
             </select>

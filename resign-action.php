@@ -11,7 +11,7 @@ if (isset($_POST['save'])) {
   if ($_POST['__method'] == 'post') {
     $data = [
       'no_surat_resign' => implode('/',$_POST['no_surat']),
-      'nik'             => $_POST['nik'],
+      'nip'             => $_POST['nip'],
       'tanggal_resign'  => $_POST['tanggal_resign'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
       'alasan'          => $_POST['alasan']
@@ -23,7 +23,7 @@ if (isset($_POST['save'])) {
   if ($_POST['__method'] == 'put') {
     $data = [
       'no_surat_resign' => implode('/',$_POST['no_surat']),
-      'nik'             => $_POST['nik'],
+      'nip'             => $_POST['nip'],
       'tanggal_resign'  => $_POST['tanggal_resign'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
       'alasan'          => $_POST['alasan']

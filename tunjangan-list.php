@@ -37,12 +37,12 @@ include 'function.php';
             </thead>
             <tbody>
               <?php 
-              $data = select('select * from tb_tunjangan');
+              $data = select('select * from tb_tunjangan left join tb_karyawan on tb_karyawan.nip = tb_tunjangan.nip');
               $no = 1;
               foreach ($data as $key) {
                 echo "<tr>";
                 echo "<td>{$key['no_surat_tunjangan']}</td>";
-                echo "<td>{$key['nik']}</td>";
+                echo "<td>{$key['nip']}". " - " ."{$key['nama']}</td>";
                 echo "<td>{$key['jenis_tunjangan']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
                 echo "<td class='text-center'>

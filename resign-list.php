@@ -29,8 +29,7 @@ include 'function.php';
             <thead>
               <tr>
                 <th width="20%">No. Surat</th>
-                <th>NIK</th>
-                <!-- <th>Nama</th> -->
+                <th>NIP</th>
                 <th>Tgl. Resign</th>
                 <th>Tgl. Surat</th>
                 <th>Alasan</th>
@@ -39,13 +38,12 @@ include 'function.php';
             </thead>
             <tbody>
               <?php 
-              $data = select('select * from tb_resign');
+              $data = select('select * from tb_resign left join tb_karyawan on tb_karyawan.nip = tb_resign.nip');
               $no = 1;
               foreach ($data as $key) {
                 echo "<tr>";
                 echo "<td>{$key['no_surat_resign']}</td>";
-                echo "<td>{$key['nik']}</td>";
-                // echo "<td>{$key['nama']}</td>";
+                echo "<td>{$key['nip']}". " - " ."{$key['nama']}</td>";
                 echo "<td>{$key['tanggal_resign']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
                 echo "<td>{$key['alasan']}</td>";

@@ -29,19 +29,19 @@ include 'function.php';
             <thead>
               <tr>
                 <th width="20%">No. Surat</th>
-                <th>NIK</th>
+                <th>NIP</th>
                 <th>Tgl. Surat</th>
                 <th width="10%">Aksi</th>
               </tr>
             </thead>
             <tbody>
               <?php 
-              $data = select('select * from tb_pengalaman_kerja');
+              $data = select('select * from tb_pengalaman_kerja left join tb_karyawan on tb_karyawan.nip = tb_pengalaman_kerja.nip');
               $no = 1;
               foreach ($data as $key) {
                 echo "<tr>";
                 echo "<td>{$key['no_surat_pengalaman']}</td>";
-                echo "<td>{$key['nik']}</td>";
+                echo "<td>{$key['nip']}". " - " ."{$key['nama']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
                 echo "<td class='text-center'>
                         <a target='_blank' href='pengalaman-print.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-print'></li></a>

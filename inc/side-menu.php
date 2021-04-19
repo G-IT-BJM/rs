@@ -53,6 +53,39 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         Pengalaman Kerja
       </a>
+      <div class="sb-sidenav-menu-heading">Laporan</div>
+      <a class="nav-link" href="laporan-karyawan-perjabatan.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Jabatan
+      </a>
+      <a class="nav-link" href="laporan-karyawan-perpendidikan.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Pendidikan
+      </a>
+      <a class="nav-link" href="laporan-karyawan-peragama.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Agama
+      </a>
+      <a class="nav-link" href="laporan-karyawan-perkontrak-tetap.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Kontrak/Tetap
+      </a>
+      <a class="nav-link" href="laporan-karyawan-permedis-nonmedis.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Medis/Non Medis
+      </a>
+      <a class="nav-link" href="laporan-karyawan-surat-resign.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Surat Resign
+      </a>
+      <a class="nav-link" href="laporan-str-sip.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan STR & SIP Pertahun
+      </a>
+      <a class="nav-link" href="laporan-karyawan-perbagian.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan Per Bagian
+      </a>
     </div>
   </div>
   <div class="sb-sidenav-footer">

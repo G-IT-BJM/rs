@@ -9,7 +9,7 @@ $no_surat = (int) explode('/',@$no_surat[0]['no_surat'])[0] + 1;
 
 $tgl_no_surat = date('d') . '-' . convertToRomawi(date('m')) . '-' . date('Y');
 $tgl_buat     = date('Y-m-d');
-$karyawan     = select("SELECT * FROM tb_karyawan");
+$karyawan     = select("SELECT * FROM tb_karyawan where nip in (select nip from tb_resign)");
 
 ?>
 
@@ -64,11 +64,11 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
             <div class="control-label">
               Karyawan
             </div>
-            <select class="form-control" name="nik" required>
+            <select class="form-control" name="nip" required>
               <option value="">Pilih Karyawan</option>
               <?php 
                 foreach ($karyawan as $key) {
-                  echo "<option value='{$key['nik']}'>{$key['nik']} - {$key['nama']}</option>";
+                  echo "<option value='{$key['nip']}'>{$key['nip']} - {$key['nama']}</option>";
                 }
               ?>
             </select>

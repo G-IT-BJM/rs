@@ -9,7 +9,7 @@ if (empty($_GET['id'])) {
 }
 
 $no_surat = $_GET['id'];
-$query = "SELECT * FROM tb_tunjangan LEFT JOIN tb_karyawan ON tb_karyawan.nik = tb_tunjangan.nik LEFT JOIN tb_bagian ON tb_bagian.id_bagian = tb_karyawan.id_bagian LEFT JOIN tb_jabatan ON tb_jabatan.id_jabatan = tb_karyawan.id_jabatan WHERE no_surat_tunjangan = '{$no_surat}'";
+$query = "SELECT * FROM tb_tunjangan LEFT JOIN tb_karyawan ON tb_karyawan.nip = tb_tunjangan.nip LEFT JOIN tb_bagian ON tb_bagian.id_bagian = tb_karyawan.id_bagian LEFT JOIN tb_jabatan ON tb_jabatan.id_jabatan = tb_karyawan.id_jabatan WHERE no_surat_tunjangan = '{$no_surat}'";
 $fetch = select($query);
 
 $no_surat_tunjangan = '';
