@@ -62,29 +62,33 @@
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
         Laporan Karyawan Per Pendidikan
       </a>
+      <a class="nav-link" href="laporan-karyawan-perkontrak-tetap.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Karyawan per Kontrak/Tetap
+      </a>
       <a class="nav-link" href="laporan-karyawan-peragama.php">
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
         Laporan Karyawan Per Agama
       </a>
-      <a class="nav-link" href="laporan-karyawan-perkontrak-tetap.php">
+      <a class="nav-link" href="laporan-karyawan-surat-resign.php">
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-        Laporan Karyawan Per Kontrak/Tetap
+        Laporan Surat Resign
+      </a>
+      <a class="nav-link" href="laporan-penerimaan-str-sip.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Penerimaan STR & SIP
       </a>
       <a class="nav-link" href="laporan-karyawan-permedis-nonmedis.php">
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-        Laporan Karyawan Per Medis/Non Medis
-      </a>
-      <a class="nav-link" href="laporan-karyawan-surat-resign.php">
-        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-        Laporan Karyawan Surat Resign
-      </a>
-      <a class="nav-link" href="laporan-str-sip.php">
-        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-        Laporan STR & SIP Pertahun
+        Laporan Medis/Non Medis
       </a>
       <a class="nav-link" href="laporan-karyawan-perbagian.php">
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
-        Laporan Karyawan Per Bagian
+        Laporan per Bagian
+      </a>
+      <a class="nav-link" href="laporan-pengantar-str-sip.php">
+        <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
+        Laporan Pengantar STR & SIP
       </a>
     </div>
   </div>
