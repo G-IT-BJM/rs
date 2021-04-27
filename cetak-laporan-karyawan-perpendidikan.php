@@ -4,7 +4,8 @@ include 'config.php';
 include 'session.php';
 include 'function.php';
 
-$karyawan = select("select * from tb_karyawan where status_kerja = '{$_GET['status']}'");
+$karyawan = select("select * from tb_karyawan where pendidikan_akhir = '{$_GET['pendidikan_akhir']}'");
+$deskripsi = $_GET['pendidikan_akhir'];
 
 ?>
 
@@ -35,11 +36,13 @@ $karyawan = select("select * from tb_karyawan where status_kerja = '{$_GET['stat
 </head>
 
 <body>
+
   <input type="button" value="CETAK" onclick="printDiv()" style="background-color: green; color: white;">
 
   <div id="printDiv">
+
     <div class="header">
-      <h3>Data Karyawan <?= $_GET['status'] ?></h3>
+      <h3>Data Karyawan Pendidikan <?= $deskripsi ?></h3>
     </div>
 
     <table>
@@ -69,6 +72,7 @@ $karyawan = select("select * from tb_karyawan where status_kerja = '{$_GET['stat
       ?>
     </table>
   </div>
+
   <script type="text/javascript">
     function printDiv() {
       var printContents = document.getElementById('printDiv').innerHTML;
@@ -78,6 +82,7 @@ $karyawan = select("select * from tb_karyawan where status_kerja = '{$_GET['stat
       document.body.innerHTML = originalContents;
     }
   </script>
+  
 </body>
 
 </html>

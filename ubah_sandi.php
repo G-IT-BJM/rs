@@ -4,8 +4,6 @@ include 'config.php';
 include 'inc/head.php';
 include 'function.php';
 
-$bagian = select("select * from tb_agama");
-
 ?>
 
 <main>
@@ -18,14 +16,15 @@ $bagian = select("select * from tb_agama");
         </div>
       </div>
       <div class="card-body">
-        <form method="get" target="_blank" action="cetak-laporan-karyawan-peragama.php">
+        <?php show_notif() ?>
+        <form method="post" action="ubah-sandi-action.php">
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
                 <div class="control-label">
                   Sandi Baru :
                 </div>
-                <input type="password" class="form-control" name="" id="">
+                <input type="password" class="form-control" name="sandi_baru" id="sandi_baru">
               </div>
             </div>
             <div class="col-lg-3">
@@ -33,7 +32,7 @@ $bagian = select("select * from tb_agama");
                 <div class="control-label">
                   Konfirmasi Sandi :
                 </div>
-                <input type="password" class="form-control" name="" id="">
+                <input type="password" class="form-control" name="konfirmasi_sandi" id="konfirmasi_sandi">
               </div>
             </div>
             <div class="col-lg-3">
@@ -41,7 +40,7 @@ $bagian = select("select * from tb_agama");
                 <div class="control-label">
                   Sandi Lama :
                 </div>
-                <input type="password" class="form-control" name="" id="">
+                <input type="password" class="form-control" name="sandi_lama" id="sandi_lama">
               </div>
             </div>
             <div class="col-lg-3">
@@ -49,7 +48,7 @@ $bagian = select("select * from tb_agama");
                 <div class="control-label">
                   &nbsp;
                 </div>
-                <input class="btn btn-primary" type="submit" value="Cetak" name="cetak">
+                <input class="btn btn-primary" type="submit" value="Ubah" name="ubah">
               </div>
             </div>
           </div>

@@ -160,8 +160,18 @@ include 'function.php';
             <div class="col-md-3 form-group">
               <div class="control-label">
                 Pendidikan Akhir
-              </div>
-              <input type="text" name="pendidikan_akhir" id="pendidikan_akhir" class="form-control" required>
+              </div>              
+              <select class="form-control" id="pendidikan_akhir" name="pendidikan_akhir" required>
+                <option value="" selected="">Pilih Pendidikan -</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="D3">D3</option>
+                <option value="D4">D4</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+              </select>
             </div>
           
             <div class="col-md-2 form-group">

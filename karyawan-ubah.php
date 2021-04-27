@@ -199,7 +199,17 @@ foreach ($row as $key) {
               <div class="control-label">
                 Pendidikan Akhir
               </div>
-              <input type="text" name="pendidikan_akhir" id="pendidikan_akhir" class="form-control" value="<?=$pendidikan_akhir?>" required>
+              <select class="form-control" id="pendidikan_akhir" name="pendidikan_akhir" required>
+                <option value="" selected="">Pilih Pendidikan -</option>
+                <option <?=$pendidikan_akhir == 'SD' ? 'selected' : ''?> value="SD">SD</option>
+                <option <?=$pendidikan_akhir == 'SMP' ? 'selected' : ''?> value="SMP">SMP</option>
+                <option <?=$pendidikan_akhir == 'SMA' ? 'selected' : ''?> value="SMA">SMA</option>
+                <option <?=$pendidikan_akhir == 'D3' ? 'selected' : ''?> value="D3">D3</option>
+                <option <?=$pendidikan_akhir == 'D4' ? 'selected' : ''?> value="D4">D4</option>
+                <option <?=$pendidikan_akhir == 'S1' ? 'selected' : ''?> value="S1">S1</option>
+                <option <?=$pendidikan_akhir == 'S2' ? 'selected' : ''?> value="S2">S2</option>
+                <option <?=$pendidikan_akhir == 'S3' ? 'selected' : ''?> value="S3">S3</option>
+              </select>
             </div>
           
             <div class="col-md-2 form-group">

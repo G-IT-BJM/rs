@@ -127,7 +127,7 @@ function destroy($table,$primary,$data)
     die();
   }
 
-  $count = count($sql);  
+  $count = mysqli_num_rows($sql);  
 
   if ($count > 0) {
     $del = mysqli_query(connect(),"delete from {$table} where {$primary} = '{$data}'");
@@ -314,6 +314,18 @@ function generateNoSurat()
 function capitalWords($str)
 {
   return ucwords(strtolower($str));
+}
+
+function ubah_sandi($pass_baru,$user)
+{
+  $sql = mysqli_query(connect(),"UPDATE tb_user SET pass = '{$pass_baru}' where user = '{$user}'");
+  
+  if (!$sql) {
+    return fail(mysqli_error(connect()));
+    die();
+  }
+
+  return success('Berhasil merubah kata sandi');
 }
 
 ?>
