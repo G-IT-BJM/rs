@@ -31,6 +31,7 @@ include 'function.php';
                 <th width="7%">No</th>
                 <th width="20%">Kode</th>
                 <th>Bagian</th>
+                <th>Medis/Non-Medis</th>
                 <th width="10%">Aksi</th>
               </tr>
             </thead>
@@ -39,10 +40,12 @@ include 'function.php';
               $data = select('select * from tb_bagian');
               $no = 1;
               foreach ($data as $key) {
+                $medis = ($key['is_medis'] == 1) ? "Medis" : "Non Medis";
                 echo "<tr>";
                 echo "<td>{$no}</td>";
                 echo "<td>{$key['id_bagian']}</td>";
                 echo "<td>{$key['nama_bagian']}</td>";
+                echo "<td>{$medis}</td>";                
                 echo "<td class='text-center'>
                         <a href='bagian-ubah.php?id={$key['id_bagian']}'><li class='fa fa-edit'></li></a>
                         <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='bagian-action.php?id={$key['id_bagian']}'><li class='fa fa-trash-alt'></li></a>

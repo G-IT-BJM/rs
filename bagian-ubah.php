@@ -10,10 +10,12 @@ $row     = select("select * from {$table} where {$primary} = '{$_GET['id']}'");
 
 $id_bagian = '';
 $nama_bagian = '';
+$is_medis = '';
 
 foreach ($row as $key) {
   $id_bagian = $key['id_bagian'];
   $nama_bagian = $key['nama_bagian'];
+  $is_medis = $key['is_medis'];
 }
 
 ?>
@@ -44,6 +46,15 @@ foreach ($row as $key) {
               Bagian
             </div>
             <input autofocus type="text" name="nama_bagian" id="nama_bagian" class="form-control" value="<?=$nama_bagian?>" required>
+          </div>
+          <div class="form-group">
+            <div class="control-label">
+              Medis/Non Medis
+            </div>
+            <select name="is_medis" id="is_medis" class="form-control">
+              <option <?= $is_medis == 1 ? ' selected' : '' ?> value="1">Medis</option>
+              <option <?= $is_medis == 0 ? ' selected' : '' ?> value="0">Non Medis</option>
+            </select>
           </div>
           <div class="form-group">
             <input type="submit" name="save" id="save" class="btn btn-primary btn-small" value="Simpan">

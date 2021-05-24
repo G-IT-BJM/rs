@@ -34,6 +34,15 @@ include 'function.php';
             <input autofocus type="text" name="nama_bagian" id="nama_bagian" class="form-control" required>
           </div>
           <div class="form-group">
+            <div class="control-label">
+              Medis/Non Medis
+            </div>
+            <select name="is_medis" id="is_medis" class="form-control">
+              <option value="1">Medis</option>
+              <option value="0">Non Medis</option>
+            </select>
+          </div>
+          <div class="form-group">
             <input type="submit" name="save" id="save" class="btn btn-primary btn-small" value="Simpan">
             <a href="bagian-list.php" class="btn btn-dark btn-small">Kembali</a>
           </div>
