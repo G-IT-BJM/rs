@@ -22,7 +22,24 @@ function select($query)
   return $result;
 }
 
-function generateID($table,$id_primary,$prefix,$length=5)
+function generateID($table, $id_primary, $prefix, $length = 5)
+{
+  $query     = "SELECT MAX({$id_primary}) as last_id FROM {$table}";
+  $sql       = mysqli_query(connect(), $query);
+
+  if (!$sql) {
+    die(mysqli_error(connect()));
+  }
+
+  $data      = mysqli_fetch_assoc($sql);
+  $lenPrefix = strlen($prefix);
+  $lengthData = ($length > $lenPrefix) ? $length - $lenPrefix : $lenPrefix - $length;
+  $getLast   = substr($data['last_id'], $lenPrefix, $lengthData );  
+  $getLast   += 1;
+  return $prefix . str_pad($getLast, ($length), 0, STR_PAD_LEFT);
+}
+
+/*function generateID($table,$id_primary,$prefix,$length=5)
 {
   $query     = "SELECT MAX({$id_primary}) as last_id FROM {$table}";
   $sql       = mysqli_query(connect(),$query);
@@ -37,7 +54,7 @@ function generateID($table,$id_primary,$prefix,$length=5)
   $getLast   += 1;
   $sprintf   = "%0".($length-$lenPrefix)."s";  
   return $prefix . sprintf($sprintf, $getLast);
-}
+}*/
 
 function generateNIP()
 {
