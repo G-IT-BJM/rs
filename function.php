@@ -110,7 +110,7 @@ function store($table,$data=array(),$message=null)
 {
   $parsing = parsingDataInsert($data);
   $query   = "INSERT INTO {$table} ({$parsing['key']}) VALUES ({$parsing['value']})";
-  $sql     = mysqli_query(connect(),$query);
+  $sql     = mysqli_query(connect(),$query);  
 
   if (!$sql) {
     return fail(mysqli_error(connect()));
@@ -343,6 +343,50 @@ function ubah_sandi($pass_baru,$user)
   }
 
   return success('Berhasil merubah kata sandi');
+}
+
+function validate($table, $unique = array(), $data = array(), $id = array())
+{
+  $where = '';
+
+  foreach ($unique as $key => $value) {
+    if ($where == '') {
+      $where .= " $value = '{$data[$value]}'";      
+    } else {
+      $where .= " OR $value = '{$data[$value]}'";
+    }
+  }  
+
+  $ex = '';
+  $c = count($id);
+  if ($c > 0 && $c < 2) {
+    foreach ($id as $key => $value) {      
+      $ex = " AND {$value} != '{$data[$value]}'";
+    }
+  }
+
+  $query = "SELECT * FROM {$table} WHERE $where ". $ex;
+  $sql     = mysqli_query(connect(),$query);  
+
+  if (!$sql) {
+    return fail(mysqli_error(connect())); 
+    die();  
+  }
+
+  if (mysqli_num_rows($sql) > 0) {
+    return false;
+  }
+
+  return true;
+}
+
+function cek_umur($tgl){
+	$lhr = new DateTime($tgl);
+	$today = new DateTime("today");
+	$y = $today->diff($lhr)->y;
+	$m = $today->diff($lhr)->m;
+	$d = $today->diff($lhr)->d;
+	return $y;
 }
 
 ?>

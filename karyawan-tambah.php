@@ -28,7 +28,7 @@ include 'function.php';
               <div class="control-label">
                 NIK
               </div>
-              <input autofocus type="text" name="nik" id="nik" class="form-control" required>
+              <input autofocus type="number" name="nik" id="nik" class="form-control" minlength="16" maxlength="16" required>
             </div>
 
             <div class="col-md-4 form-group">

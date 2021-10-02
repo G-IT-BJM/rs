@@ -11,15 +11,37 @@ if (isset($_POST['save'])) {
   if ($_POST['__method'] == 'post') {
     unset($_POST['__method']);
     unset($_POST['save']);
-    
-    store($table, $_POST, 'Berhasil tambah data.');
+
+    $unique = [
+      'nama_jabatan'
+    ];
+
+    if (validate($table, $unique, $_POST)) {
+      store($table, $_POST, 'Berhasil tambah data.');
+    } else {
+      fail('Nama jabatan sudah ada!');
+    }
+
     back();
   }
   if ($_POST['__method'] == 'put') {
     unset($_POST['__method']);
     unset($_POST['save']);
+
+    $unique = [
+      'nama_jabatan'
+    ];
+
+    $id = [
+      'id_jabatan'
+    ];
     
-    update($table, $primary, $_POST, 'Berhasil ubah data.');
+    if (validate($table, $unique, $_POST, $id)) {
+      update($table, $primary, $_POST, 'Berhasil ubah data.');
+    } else {
+      fail('Nama jabatan sudah ada!');
+    }
+
     back();
   }
 }

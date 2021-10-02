@@ -9,7 +9,7 @@ $no_surat = (int) explode('/',@$no_surat[0]['no_surat'])[0] + 1;
 
 $tgl_no_surat = date('d') . '-' . convertToRomawi(date('m')) . '-' . date('Y');
 $tgl_buat     = date('Y-m-d');
-$karyawan     = select("SELECT * FROM tb_karyawan where nip in (select nip from tb_resign)");
+$karyawan     = select("SELECT * FROM tb_karyawan where nip in (select nip from tb_resign) and nip not in (select nip from tb_pengalaman_kerja)");
 
 ?>
 
