@@ -14,7 +14,8 @@ if (isset($_POST['save'])) {
       'nip'             => $_POST['nip'],
       'tanggal_resign'  => $_POST['tanggal_resign'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
-      'alasan'          => $_POST['alasan']
+      'alasan'          => $_POST['alasan'],
+      'is_approve' => 0
     ];
     
     store($table, $data, 'Berhasil tambah data.');
@@ -26,7 +27,8 @@ if (isset($_POST['save'])) {
       'nip'             => $_POST['nip'],
       'tanggal_resign'  => $_POST['tanggal_resign'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
-      'alasan'          => $_POST['alasan']
+      'alasan'          => $_POST['alasan'],
+      'is_approve' => $_POST['is_approve']
     ];
     
     update($table, $primary, $data, 'Berhasil ubah data.');

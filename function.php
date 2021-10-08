@@ -297,6 +297,7 @@ function checkLogin($user,$pass)
     $fetch = mysqli_fetch_assoc($sql);
     if ($user == $fetch['user'] && $pass == $fetch['pass']) {
       $_SESSION['user'] = $user;
+      $_SESSION['level'] = $fetch['level'];
       return true;
     } else {
       return false;
@@ -387,6 +388,25 @@ function cek_umur($tgl){
 	$m = $today->diff($lhr)->m;
 	$d = $today->diff($lhr)->d;
 	return $y;
+}
+
+function status($status)
+{
+  switch ($status) {
+    case 0:
+      $hasil = 'Belum proses';
+      break;
+    case 1:
+      $hasil = 'Disetujui';
+      break;
+    case -1:
+      $hasil = 'Ditolak';
+      break;
+    default:
+      # code...
+      break;
+    }
+    return $hasil;
 }
 
 ?>

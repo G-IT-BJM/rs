@@ -13,6 +13,7 @@ $nip             = '';
 $tanggal_resign  = '';
 $tanggal_buat    = '';
 $alasan          = '';
+$is_approve = '';
 
 foreach ($row as $key) {
   $no_surat_resign = explode('/',$key['no_surat_resign']);
@@ -20,6 +21,7 @@ foreach ($row as $key) {
   $tanggal_resign  = $key['tanggal_resign'];
   $tanggal_buat    = $key['tanggal_buat'];
   $alasan          = $key['alasan'];
+  $is_approve = $key['is_approve'];
 }
 
 $karyawan = select("SELECT * FROM tb_karyawan");
@@ -42,6 +44,7 @@ $karyawan = select("SELECT * FROM tb_karyawan");
 
         <form action="resign-action.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="__method" value="put">
+          <input type="hidden" name="is_approve" value="<?=$is_approve?>">
           <div class="row">
             <div class="col-lg-4">
               <div class="form-group">

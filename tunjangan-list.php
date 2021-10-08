@@ -17,7 +17,9 @@ include 'function.php';
           Data Tunjangan
         </div>
         <div class="float-right">
+          <?php if ($_SESSION['level'] == 'admin') { ?>
           <a class="btn btn-primary btn-sm" href="tunjangan-tambah.php"><li class="fa fa-plus"></li> Tambah</a>
+          <?php } ?>
         </div>
       </div>
       <div class="card-body">
@@ -32,6 +34,9 @@ include 'function.php';
                 <th>NIK</th>                
                 <th>Tunjangan</th>
                 <th>Tgl. Buat</th>
+                <th>Status</th>
+                <th>Kartu Nikah</th>
+                <th>Kartu Keluarga</th>
                 <th width="10%">Aksi</th>
               </tr>
             </thead>
@@ -45,11 +50,25 @@ include 'function.php';
                 echo "<td>{$key['nip']}". " - " ."{$key['nama']}</td>";
                 echo "<td>{$key['jenis_tunjangan']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
-                echo "<td class='text-center'>
-                        <a target='_blank' href='tunjangan-print.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-print'></li></a>
-                        <a href='tunjangan-ubah.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-edit'></li></a>
-                        <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='tunjangan-action.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-trash-alt'></li></a>
-                      </td>";
+                echo "<td> <a href='{$key['kartu_nikah']}' target='_blank' rel='noopener noreferrer'><img width='200px' height='200px' src='{$key['kartu_nikah']}'></a></td>";
+                echo "<td> <a href='{$key['kartu_keluarga']}' target='_blank' rel='noopener noreferrer'><img width='200px' height='200px' src='{$key['kartu_keluarga']}'></a></td>";
+                echo "<td>".status($key['is_approve'])."</td>";
+                if ($_SESSION['level'] == 'admin') {
+                  echo "<td class='text-center'>";
+
+                  if ($key['is_approve'] == 1) { 
+                    echo "<a target='_blank' href='tunjangan-print.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-print'></li></a>";
+                  }
+                  
+                  echo "<a href='tunjangan-ubah.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-edit'></li></a>
+                          <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='tunjangan-action.php?id={$key['no_surat_tunjangan']}'><li class='fa fa-trash-alt'></li></a>
+                        </td>";
+                } else {
+                  echo "<td>
+                    <a class='btn btn-success btn-sm mb-1' href='tunjangan-status.php?id={$key['no_surat_tunjangan']}&status=1'>Setuju</a>
+                    <a class='btn btn-danger btn-sm mb-1' href='tunjangan-status.php?id={$key['no_surat_tunjangan']}&status=-1'>Tolak</a>
+                  </td>";
+                }
                 echo "</tr>";
                 $no++;
               } 

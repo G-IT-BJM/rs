@@ -13,11 +13,13 @@ $nip             = '';
 $tanggal_pengalaman  = '';
 $tanggal_buat    = '';
 $alasan          = '';
+$is_approve = '';
 
 foreach ($row as $key) {
   $no_surat_pengalaman = explode('/',$key['no_surat_pengalaman']);
   $nip             = $key['nip'];
   $tanggal_buat    = $key['tanggal_buat'];
+  $is_approve = $key['is_approve'];
 }
 
 $karyawan = select("SELECT * FROM tb_karyawan");
@@ -39,6 +41,7 @@ $karyawan = select("SELECT * FROM tb_karyawan");
 
         <form action="pengalaman-action.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="__method" value="put">
+          <input type="hidden" name="is_approve" value="<?=$is_approve?>">
           <div class="row">
             <div class="col-lg-4">
               <div class="form-group">

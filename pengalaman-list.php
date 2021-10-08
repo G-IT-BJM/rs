@@ -17,7 +17,9 @@ include 'function.php';
           Data Pengalaman Kerja
         </div>
         <div class="float-right">
+          <?php if ($_SESSION['level'] == 'admin') { ?>
           <a class="btn btn-primary btn-sm" href="pengalaman-tambah.php"><li class="fa fa-plus"></li> Tambah</a>
+          <?php } ?>
         </div>
       </div>
       <div class="card-body">
@@ -31,6 +33,7 @@ include 'function.php';
                 <th width="20%">No. Surat</th>
                 <th>NIP</th>
                 <th>Tgl. Surat</th>
+                <th>Status</th>
                 <th width="10%">Aksi</th>
               </tr>
             </thead>
@@ -43,11 +46,21 @@ include 'function.php';
                 echo "<td>{$key['no_surat_pengalaman']}</td>";
                 echo "<td>{$key['nip']}". " - " ."{$key['nama']}</td>";
                 echo "<td>{$key['tanggal_buat']}</td>";
-                echo "<td class='text-center'>
-                        <a target='_blank' href='pengalaman-print.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-print'></li></a>
-                        <a href='pengalaman-ubah.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-edit'></li></a>
-                        <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='pengalaman-action.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-trash-alt'></li></a>
-                      </td>";
+                echo "<td>".status($key['is_approve'])."</td>";
+                if ($_SESSION['level'] == 'admin') {
+                  echo "<td class='text-center'>";
+                  if ($key['is_approve'] == 1) {                     
+                    echo "<a target='_blank' href='pengalaman-print.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-print'></li></a>";
+                  }
+                  echo "<a href='pengalaman-ubah.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-edit'></li></a>
+                          <a onclick='return confirm(\"Apakah anda yakin ingin menghapus data ini?\")' href='pengalaman-action.php?id={$key['no_surat_pengalaman']}'><li class='fa fa-trash-alt'></li></a>
+                        </td>";
+                } else {
+                  echo "<td>
+                    <a class='btn btn-success btn-sm mb-1' href='pengalaman-status.php?id={$key['no_surat_pengalaman']}&status=1'>Setuju</a>
+                    <a class='btn btn-danger btn-sm mb-1' href='pengalaman-status.php?id={$key['no_surat_pengalaman']}&status=-1'>Tolak</a>
+                  </td>";
+                }
                 echo "</tr>";
                 $no++;
               } 

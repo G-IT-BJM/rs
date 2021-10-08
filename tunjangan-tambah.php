@@ -26,7 +26,7 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
 
         <?php show_notif() ?>
 
-        <form action="tunjangan-action.php" method="post" enctype="multipart/form-data">
+      <form action="tunjangan-action.php" method="post" enctype="multipart/form-data">
           <input type="hidden" name="__method" value="post">
           <div class="row">
             <div class="col-lg-4">
@@ -55,10 +55,23 @@ $karyawan     = select("SELECT * FROM tb_karyawan");
                 <div class="control-label">
                   &nbsp;
                 </div>
-                <input readonly type="text" name="no_surat[]" class="form-control" required" value="<?=$tgl_no_surat?>">
+                <input readonly type="text" name="no_surat[]" class="form-control" required value="<?=$tgl_no_surat?>">
               </div>
             </div>
-
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <div class="form-label">Kartu Nikah</div>
+                <input type="file" name="kartu_nikah" id="kartu_nikah" class="form-control" required accept="image/*">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <div class="form-label">Kartu Keluarga</div>
+                <input type="file" name="kartu_keluarga" id="kartu_keluarga" class="form-control" required accept="image/*">
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <div class="control-label">

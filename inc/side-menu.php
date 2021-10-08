@@ -1,6 +1,9 @@
 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
   <div class="sb-sidenav-menu">
     <div class="nav">
+
+      <?php if ($_SESSION['level'] == 'admin') { ?>
+
       <div class="sb-sidenav-menu-heading">Menu</div>
       <a class="nav-link" href="index.php">
         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -40,6 +43,9 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         SIP
       </a>
+
+      <?php } ?>
+
       <div class="sb-sidenav-menu-heading">Surat</div>
       <a class="nav-link" href="tunjangan-list.php">
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
@@ -53,6 +59,9 @@
         <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
         Pengalaman Kerja
       </a>
+
+      <?php if ($_SESSION['level'] == 'admin') { ?>
+
       <div class="sb-sidenav-menu-heading">Laporan</div>
       <a class="nav-link" href="laporan-karyawan-perjabatan.php">
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
@@ -90,6 +99,9 @@
         <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
         Laporan Pengantar STR & SIP
       </a>
+
+      <?php } ?>
+      
     </div>
   </div>
   <div class="sb-sidenav-footer">

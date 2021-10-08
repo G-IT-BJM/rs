@@ -13,6 +13,7 @@ if (isset($_POST['save'])) {
       'no_surat_pengalaman' => implode('/',$_POST['no_surat']),
       'nip'             => $_POST['nip'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
+      'is_approve' => 0
     ];
     
     store($table, $data, 'Berhasil tambah data.');
@@ -23,6 +24,7 @@ if (isset($_POST['save'])) {
       'no_surat_pengalaman' => implode('/',$_POST['no_surat']),
       'nip'             => $_POST['nip'],
       'tanggal_buat'    => $_POST['tanggal_buat'],
+      'is_approve' => $_POST['is_approve']
     ];
     
     update($table, $primary, $data, 'Berhasil ubah data.');
